@@ -8,6 +8,11 @@ import router from './router'
 import VueResource from 'vue-resource'
 import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import Bscroll from 'better-scroll'
+import axios from 'axios'
+import VueBetterScroll from 'vue2-better-scroll'
+import store from './store'
+
 
 // require styles
 import 'swiper/dist/css/swiper.css'
@@ -18,6 +23,7 @@ import 'swiper/dist/css/swiper.css'
 Vue.use(ElementUI);
 Vue.use(VueResource)
 Vue.use(VueAwesomeSwiper, /* */)
+Vue.use(VueBetterScroll)
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)
@@ -29,10 +35,14 @@ import '@/assets/styles/iconfont.js'
 import '@/assets/css/common.css'	
 import '@/assets/styles/reset.css'
 import '@/assets/styles/border.css'
+
+//js
+import '@/assets/js/bscroll.min.js'
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

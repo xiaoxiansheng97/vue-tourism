@@ -5,51 +5,23 @@
         <div class="title">当前城市</div>
         <div class="list-button">
           <div class="button">
-            <div class="small-button">长沙</div>
+            <div class="small-button">{{this.$store.state.city}}</div>
           </div>
         </div>
       </div>
       <div class="area">
         <div class="title">热门城市</div>
         <div class="list-button">
-          <div class="button">
-            <div class="small-button">长沙</div>
+          <div class="button" v-for="item of hot" :key="item.id" @click="handleCityClick(item.name)">
+            <div class="small-button">{{item.name}}</div>
           </div>
-          <div class="button">
-            <div class="small-button">北京</div>
-          </div>
-          <div class="button">
-            <div class="small-button">深圳</div>
-          </div>
-          <div class="button">
-            <div class="small-button">上海</div>
-          </div>
+          
         </div>
       </div>
-      <div class="area">
-        <div class="title">A</div>
-        <div class="item-list">
-          <div class="item">啊拉尔</div>
-          <div class="item">啊拉尔</div>
-          <div class="item">啊拉尔</div>
-          <div class="item">啊拉尔</div>
-          <div class="item">啊拉尔</div><div class="item">啊拉尔</div>
-          <div class="item">啊拉尔</div>
-          <div class="item">啊拉尔</div>
-          <div class="item">啊拉尔</div>
-          <div class="item">啊拉尔</div><div class="item">啊拉尔</div>
-          <div class="item">啊拉尔</div>
-          <div class="item">啊拉尔</div>
-          <div class="item">啊拉尔</div>
-          <div class="item">啊拉尔</div><div class="item">啊拉尔</div>
-          <div class="item">啊拉尔</div>
-          <div class="item">啊拉尔</div>
-          <div class="item">啊拉尔</div>
-          <div class="item">啊拉尔</div><div class="item">啊拉尔</div>
-          <div class="item">啊拉尔</div>
-          <div class="item">啊拉尔</div>
-          <div class="item">啊拉尔</div>
-          <div class="item">啊拉尔</div>
+      <div class="area" v-for="(item,key) of cities " :key="key" :ref="key" >
+        <div class="title">{{key}}</div>
+        <div class="item-list" >
+          <div class="item" v-for="innerItem of item" :key="innerItem.id" @click="handleCityClick(innerItem.name)">{{innerItem.name}}</div>         
         </div>
       </div>
     </div>
@@ -58,13 +30,34 @@
 
 
 <script >
-import Bscroll from 'better-scroll'
+// import Bscroll from 'better-scroll'
+import '@/assets/js/bscroll.min.js'
 	export default{
 		name:"CityList",
+		props:{
+			hot:Array,
+			cities:Object,
+			letter:String
+		},
 		mounted(){
-			this.scroll = new BScroll(this.$refs.wrapper)
+			// this.scroll = new BScroll(this.$refs.wrapper)
+		},
+		watch:{
+			letter(){
+				if (this.letter) {
+					const element = this.$refs[this.letter][0]
+					console.log(element)
+					this.scroll.scrollToElement(element)
+				}
+				
+			}
 		},
 		methods:{
+			handleCityClick(city){
+				this.$store.dispatch('changeCity',city)
+				this.$router.push('/')
+				// alert(city)
+			}
 			// returnHome(){
 			// 	this.$router.push('/list')
 			// }
@@ -74,7 +67,7 @@ import Bscroll from 'better-scroll'
 <style lang="stylus" scoped>
 @import '~@/assets/css/common.styl'	
 .list
-	overflow:hidden
+	overflow:scroll
 	position:absolute
 	top:1.58rem
 	left:0
