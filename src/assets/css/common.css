@@ -12,3 +12,6 @@ a{
 	display: block;
 	text-decoration: none;
 }
+.weekend-item  img.itemImg{
+	width: 100%
+}

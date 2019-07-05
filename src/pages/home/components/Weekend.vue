@@ -1,8 +1,8 @@
 <template>
-  <div class="recommend">
-    <div class="recommend-title">周末去哪</div>
+  <div class="weekend">
+    <div class="weekend-title">周末去哪</div>
     <ul>
-      <li v-for="item of recommendList" class="item">
+      <li v-for="item of weekendList" class="weekend-item">
         <div class="item-img-wrapper">
           <img class="itemImg" :src="item.imgSrc" >
         </div>
@@ -20,7 +20,7 @@ export default {
   name: 'HomeWeekend',
   data(){
   	return{
-  		recommendList:[{
+  		weekendList:[{
   			id:'001',
   			imgSrc:'https://imgs.qunarzz.com/sight/source/1505/fb/302620ed8350f8.jpg_r_640x214_25a07cb4.jpg',
   			title:'长沙必打卡 ',
@@ -45,7 +45,7 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~@/assets/css/common.styl'
-	.recommend-title
+	.weekend-title
 		line-height:.8rem
 		background:#eee
 		text-indent:.2rem
@@ -53,10 +53,9 @@ export default {
     overflow:hidden
     padding-bottom:37%
     height:0
-		.itemImg
+		img.itemImg
 			width:100%
-	.item-info
-		
+	.item-info		
 		padding:.1rem
 		.item-title
 			line-height:.54rem
