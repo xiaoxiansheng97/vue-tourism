@@ -39,7 +39,7 @@
 			color:#ccc
 		.header-right
 			color:#fff
-			width:1.24rem
+			min-width:1.14rem
 			float:right
 			text-align:center
 			

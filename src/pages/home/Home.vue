@@ -25,13 +25,13 @@ export default {
   },
   data(){
   	return{
-  		
+  		lastCity:'',
   		swiperList:[]
   	}
   },
   methods:{
   	gitHomeInfo(){
-  		axios.get('/api/index.json')
+  		axios.get('/api/index.json?city='+this.$store.state.city)
   			.then(this.getHomeInfoSucc)
   	},
   	getHomeInfoSucc(res){
@@ -45,7 +45,14 @@ export default {
   	}
   },
   mounted (){
+    this.lastCity = this.city
   	this.gitHomeInfo()
+  },
+  activated (){
+    if (this.lastCity !== this.city) {
+      this.lastCity = this.city
+      this.gitHomeInfo()
+    }
   }
 }
 

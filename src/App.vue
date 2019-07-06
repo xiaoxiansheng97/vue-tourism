@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view/>
+    <keep-alive>
+      <router-view />
+    </keep-alive>
   </div>
 </template>
 <script>
@@ -9,17 +11,17 @@ const ERR_OK = 0;
 export default {
   data() {
     return {
-      seller:{ }
+      seller: {}
     }
   },
-  
-  components:{
-    'v-header':header,
+  components: {
+    'v-header': header,
   },
   name: 'App'
 }
 
 </script>
+
 <style>
 #app {
  

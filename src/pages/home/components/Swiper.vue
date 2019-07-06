@@ -1,38 +1,33 @@
 <template>
-	<div class="wrapper">
-		<swiper :options="swiperOption" v-if="list.length"><!-- ref="mySwiper" @someSwiperEvent="callback" -->
-    
-    <swiper-slide v-for="item of list" :key="item.id"><img :src="item.imgSrc"></swiper-slide>
-    
-    
-    <div class="swiper-pagination"  slot="pagination"></div>
-    
+  <div class="wrapper">
+    <swiper :options="swiperOption" v-if="list.length">
+      <!-- ref="mySwiper" @someSwiperEvent="callback" -->
+      <swiper-slide v-for="item of list" :key="item.id"><img :src="item.imgSrc"></swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
-	</div>
-	
-    
-   
-  
+  </div>
 </template>
-<script >
-	export default{
-		name:'HomeSwiper',
-    props:{
-      list:Array
-    },
-	data () {
-      return {
-        swiperOption: {
-          // some swiper options/callbacks
-          // 所有的参数同 swiper 官方 api 参数
-          // ...
-          pagination:'.swiper-pagination',
-          loop: true
-        }
+<script>
+export default {
+  name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
+  data() {
+    return {
+      swiperOption: {
+        // some swiper options/callbacks
+        // 所有的参数同 swiper 官方 api 参数
+        // ...
+        pagination: '.swiper-pagination',
+        loop: true
       }
     }
   }
+}
+
 </script>
+
 <style lang="stylus" scoped>
 	
 	.wrapper
