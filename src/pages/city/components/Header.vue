@@ -1,6 +1,6 @@
 <template>
 	<div class="header">
-	<router-link to='/'><div class="iconfont icon-fanhui" ></div></router-link>
+	<router-link to='/Home'><div class="iconfont icon-fanhui" ></div></router-link>
 		城市选择
 	</div>
 </template>

@@ -47,7 +47,7 @@ export default {
   methods: {
     handleCityClick(city){
         this.$store.dispatch('changeCity',city)
-        this.$router.push('/')
+        this.$router.push('/home')
         // alert(city)
       }
     // returnHome(){

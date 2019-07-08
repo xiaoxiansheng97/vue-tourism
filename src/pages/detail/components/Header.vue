@@ -1,10 +1,10 @@
 <template>
   <div>
-    <router-link tag="div" to="/" class="header-abs" v-show="showAbs">
+    <router-link tag="div" to="/home" class="header-abs" v-show="showAbs">
       <div class="iconfont icon-fanhui"></div>
     </router-link>
     <div class="header-fixed" v-show="!showAbs" :style="opacityStyle">
-      <router-link to='/'>
+      <router-link to='/home'>
         <div class="iconfont icon-fanhui"></div>
       </router-link>景点详情
     </div>
@@ -37,6 +37,9 @@ export default {
   },
   activated() {
     window.addEventListener('scroll', this.handleScroll)
+  },
+  deactivated(){
+    window.removeEventListener('scroll', this.handleScroll)
   }
 
 }
@@ -60,7 +63,7 @@ export default {
       color: #fff
       font-size: .3rem
   .header-fixed
-    z-index: 2
+    z-index: 3
     position: fixed
     top: 0
     left: 0

@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <keep-alive>
+    <keep-alive exclude="Detail"> 
       <router-view />
     </keep-alive>
   </div>
 </template>
 <script>
-import header from './components/header/header.vue';
+
 const ERR_OK = 0;
 export default {
   data() {
@@ -15,7 +15,7 @@ export default {
     }
   },
   components: {
-    'v-header': header,
+    
   },
   name: 'App'
 }

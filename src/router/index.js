@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Login from '@/pages/login'
 import HelloWorld from '@/components/HelloWorld'
 import Home from '@/pages/home/Home'
 import City from '@/pages/city/City'
@@ -14,6 +15,11 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'Login',
+      component: Login
+    },
+    {
+      path: '/home',
       name: 'Home',
       component: Home
     },{
@@ -30,5 +36,8 @@ export default new Router({
     //   name:'List',
     //   component:List
     // }
-  ]
+  ],
+  scrollBehavior (to,from, savedPosition){
+    return {x:0,y:0}
+  }
 })
